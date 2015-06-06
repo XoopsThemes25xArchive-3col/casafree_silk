@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>" />
+<meta http-equiv="content-language" content="<{$xoops_langcode}>" />
+<meta name="robots" content="<{$xoops_meta_robots}>" />
+<meta name="keywords" content="<{$xoops_meta_keywords}>" />
+<meta name="description" content="<{$xoops_meta_description}>" />
+<meta name="rating" content="<{$xoops_meta_rating}>" />
+<meta name="author" content="<{$xoops_meta_author}>" />
+<meta name="copyright" content="<{$xoops_meta_copyright}>" />
+<meta name="generator" content="XOOPS" />
+<title><{$xoops_sitename}> - <{$xoops_pagetitle}></title>
+<link rel="stylesheet" type="text/css" media="all" href="<{$xoops_imageurl}>style.css" />
+
+<{if $xoops_showrblock == 1}> 
+<link rel="stylesheet" type="text/css" media="all" href="<{$xoops_imageurl}>styleR.css" />
+<{else}><link rel="stylesheet" type="text/css" media="all" href="<{$xoops_imageurl}>styleR0.css" />
+<{/if}>
+<link rel="stylesheet" type="text/css" media="all" href="<{$xoops_url}>/xoops.css" />
+<!-- RMV: added module header -->
+<{$xoops_module_header}>
+<script type="text/javascript">
+<!--
+<{$xoops_js}>
+//-->
+</script>
+</head>
+
+<body>
+<!-- Casafree Free Xoops design
+Free Design for Xoops based websites, design by Casafree.com 
+License : Creative Commons License By 3.0 : http://creativecommons.org/licenses/by/3.0/ 
+You are free:
+    * to Share — to copy, distribute and transmit the work
+    * to Remix — to adapt the work
+Under the following conditions:
+    * Attribution. You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work).
+	* You must link back to : Casafree.com or insideCasafree.com if you are using this file.
+*/
+-->
+<!-- Headers and layout -->
+<a href="<{$xoops_url}>"><div id="logo">
+</div></a>
+<!-- Left Blocks -->
+<div id="blocleft">
+<{foreach item=block from=$xoops_lblocks}> <{include file="$xoops_theme/blocleft.html"}> <{/foreach}>
+</div>
+<{if $xoops_showrblock == 1}> 
+<div id="blocright">
+<{foreach item=block from=$xoops_rblocks}> <{include file="$xoops_theme/blocright.html"}> <{/foreach}>
+</div>
+<{/if}>
+
+<!-- Top picture in right Blocks -->
+<div id="right"> </div>
+
+<!-- Header bar -->
+<div id="headermenu">
+ <form style="margin: 0px;" action="<{$xoops_url}>/search.php" method="get">
+  <input name="query" size="14" type="text"><input name="action" value="results" type="hidden"><input value="Search" type="submit" class="go">
+</form>
+</div>
+
+<!-- Header bar Links : You must replace those links by yours.-->
+<div id="menubar"><a href="<{$xoops_url}>/modules/articles/">» Articles</a> <a href="<{$xoops_url}>/modules/newbb/">» Forums</a> <a href="<{$xoops_url}>/modules/wordpress/">» Wordpress</a> <a href="<{$xoops_url}>/modules/downloads/">» Download</a> <a href="<{$xoops_url}>/modules/planet">» Planet</a> <a href="<{$xoops_url}>/modules/contact/">» Contact</a></div>
+<!-- End of Header bar Links-->
+
+<!-- Main content-->
+<div id="contenu">
+
+  <div id="cadrecentral">
+  
+  <!-- Start blocks loop -->
+  <{if $xoops_showcblock == 1}>
+    <!-- Start center-center blocks loop -->
+<{foreach item=block from=$xoops_ccblocks}> <{include file="$xoops_theme/bloccenter.html"}> <{/foreach}> 
+  <!-- end center-center blocks loop -->
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="50%" valign="top">
+		<!-- Start center-left blocks loop --> 
+<{foreach item=block from=$xoops_clblocks}> <{include file="$xoops_theme/bloccenter.html"}> <{/foreach}> 
+                    <!-- End center-left blocks loop -->
+					</td>
+        <td width="50%" valign="top">
+		<!-- Start center-right blocks loop --> 
+<{foreach item=block from=$xoops_crblocks}> <{include file="$xoops_theme/bloccenter.html"}> <{/foreach}> 
+                    <!-- End center-right blocks loop --></td>
+      </tr>
+    </table> <{/if}> 
+	  <!-- End blocks loop -->
+	  
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td> <{$xoops_contents}></td>
+      </tr>
+    </table>
+	
+	
+<!-- Bottom blocks loop -->
+<{if $xoBlocks.page_bottomleft or $xoBlocks.page_bottomright or $xoBlocks.page_bottomcenter}>
+<{if $xoBlocks.page_bottomcenter}>
+
+<{foreach from=$xoBlocks.page_bottomcenter item=block}> <{include file="$xoops_theme/bloccenter.html"}> <{/foreach}> <{/if}>
+
+<{if $xoBlocks.page_bottomleft or $xoBlocks.page_bottomright}>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="50%" valign="top"> <!-- Start center-left blocks loop --> 
+<{foreach from=$xoBlocks.page_bottomleft item=block}> <{include file="$xoops_theme/bloccenter.html"}> <{/foreach}> 
+                    <!-- End center-left blocks loop --></td>
+        <td width="50%" valign="top"><!-- Start center-right blocks loop --> 
+<{foreach from=$xoBlocks.page_bottomright item=block}> <{include file="$xoops_theme/bloccenter.html"}> <{/foreach}> 
+                    <!-- End center-right blocks loop --></td>
+      </tr>
+    </table> <{/if}> 
+<{/if}>
+
+
+<!-- End bottom blocks loop -->
+
+  </div>
+</div>
+<div id="footer"><{$xoops_banner}><br /><{$meta_copyright}><br />
+<{$xoops_footer}><br />
+<!-- Creative Commons License : You must link back to : Casafree.com or insideCasafree.com if you are using this file.  -->
+Powered by <a href="http://www.xoops.org/">Xoops</a> Theme designed by <a href="http://www.casafree.com/modules/xcgal/">Photos albums</a> <a href="http://www.casafree.com/">Casafree</a></div>
+</body>
+</html>
